@@ -1,6 +1,7 @@
 import requests
 import tkinter as tk
 import sys
+import os
 
 # UNNECESSARY
 import base64
@@ -56,6 +57,11 @@ def convert(url, filename):
         output.write(data)
 
 def main():
+    if(not os.path.exists("in")):
+        os.makedirs("in")
+    if(not os.path.exists("out")):
+        os.makedirs("out")
+
     if(len(sys.argv) < 2):
         print("No link specified.")
         return
